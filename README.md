@@ -9,10 +9,8 @@
 ---
 
 ## 🌐 Navigation / Language
-
-* [Français](https://www.google.com/search?q=%2523version-fran%25C3%25A7aise&utm_source=gemini)
-* [English](https://www.google.com/search?q=%2523english-version&utm_source=gemini)
-
+- [Français](#-version-française)
+- [English](#-english-version)
 ---
 
 ## Version Française
