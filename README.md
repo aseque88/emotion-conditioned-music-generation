@@ -9,8 +9,8 @@
 ---
 
 ## 🌐 Navigation / Language
-- [Français](#-version-française)
-- [English](#-english-version)
+- [Français](#version-française)
+- [English](#english-version)
 ---
 
 ## Version Française
