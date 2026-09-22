@@ -6,14 +6,12 @@
 > **Auteurs :** Éric CHEN & Léa YANG
 > 
 > 
-> 📄 **Rapports complets :** [Français](https://www.google.com/search?q=docs/rapport_projet_FR.pdf&utm_source=gemini) | [English](https://www.google.com/search?q=docs/rapport_projet_EN.pdf&utm_source=gemini) | [Slides](https://www.google.com/search?q=docs/presentation_slides.pdf&utm_source=gemini)
-
 ---
 
 ## 🌐 Navigation / Language
 
-* [Français](https://www.google.com/search?q=%2523french-version&utm_source=gemini)
-* [English](https://www.google.com/search?q=%2523english-version&utm_source=gemini)
+- [Français](#version-française)
+- [English](#english-version)
 
 ---
 
@@ -21,7 +19,7 @@
 
 ### 📌 Présentation du Projet
 
-Ce projet explore la génération automatique de musique pour piano conditionnée par une intention émotionnelle. En combinant le dataset **EMOPIA** et le **modèle circomplexe de Russell (1980)**, nous classons les pièces selon la **Valence** (positivité) et l'**Activation / Arousal** (énergie) :
+Ce projet explore la génération automatique de musique pour piano conditionnée par une intention émotionnelle. En combinant le dataset [**EMOPIA**](https://annahung31.github.io/EMOPIA/) et le **modèle circomplexe de Russell (1980)**, nous classons les pièces selon la **Valence** (positivité) et l'**Activation / Arousal** (énergie) :
 
 * **Q1 (Haute Valence / Haute Activation) :** Joie, excitation
 
