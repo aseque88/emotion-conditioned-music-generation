@@ -1,23 +1,27 @@
+
 # 🎵 Emotion-Conditioned Piano Music Generation (CVAE-LSTM)
 
-> **Université Paris-Dauphine — Projet de Deep Learning (Mai 2026)**
+> **Université Paris-Dauphine — Master Deep Learning (Mai 2026)**
 > 
 > **Auteurs :** Éric CHEN & Léa YANG
 > 
 > 
+> 📄 **Rapports complets :** [Français](https://www.google.com/search?q=docs/rapport_projet_FR.pdf&utm_source=gemini) | [English](https://www.google.com/search?q=docs/rapport_projet_EN.pdf&utm_source=gemini) | [Slides](https://www.google.com/search?q=docs/presentation_slides.pdf&utm_source=gemini)
 
 ---
 
 ## 🌐 Navigation / Language
-- [Français](#version-française)
-- [English](#english-version)
+
+* [Français](https://www.google.com/search?q=%2523french-version&utm_source=gemini)
+* [English](https://www.google.com/search?q=%2523english-version&utm_source=gemini)
+
 ---
 
 ## Version Française
 
 ### 📌 Présentation du Projet
 
-Ce projet explore la génération automatique de musique pour piano conditionnée par des émotions. Nous combinons le dataset **EMOPIA** et le **modèle circomplexe de Russell (1980)** pour classer les pièces musicales selon la **Valence** (positivité) et l'**Activation / Arousal** (énergie) :
+Ce projet explore la génération automatique de musique pour piano conditionnée par une intention émotionnelle. En combinant le dataset **EMOPIA** et le **modèle circomplexe de Russell (1980)**, nous classons les pièces selon la **Valence** (positivité) et l'**Activation / Arousal** (énergie) :
 
 * **Q1 (Haute Valence / Haute Activation) :** Joie, excitation
 
@@ -38,35 +42,41 @@ Notre architecture retenue est un **Auto-Encodeur Variationnel Conditionnel coup
 
 Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire de 268 tokens, $SEQ\_LEN = 512$).
 
-| Modèle | Dim Latente ($d$) | Loss Val (ELBO) | Résultat |
-| --- | --- | --- | --- |
-| **VAE (MLP)** | 64 | 2346.0 | Overfitting massif, perte du contexte temporel.
+| Étape | Modèle | Dim Latente ($d$) | Loss Val (ELBO) | Résultat & Observations |
+| --- | --- | --- | --- | --- |
+| **1** | **VAE (MLP)** | 64 | 2346.0 | Overfitting massif, perte du contexte temporel.
 
  |
-| **VAE (CNN 1D)** | 64 | 1885.4 | Bonnes structures locales, amnésie temporelle.
+| **2** | **VAE (CNN 1D)** | 64 | 1885.4 | Motifs locaux appris, amnésie temporelle.
 
  |
-| **VAE (LSTM)** | 64 | 1284.4 | Excellente cohérence, génération émotionnelle aléatoire.
+| **3** | **VAE (LSTM)** | 64 | 1284.4 | Excellente cohérence, génération émotionnelle aléatoire.
 
  |
-| **C-VAE (LSTM)** | **64** | **1283.6** | **Haute qualité musicale + Séparation nette en 4 clusters**.
+| **4** | **C-VAE (LSTM)** | **64** | **1283.6** | **Qualité musicale optimale + Séparation nette en 4 clusters**.
 
  |
 
 ### 🛠️ Structure du Dépôt
 
-```text
-cvae-emopia-music/
-├── data/              # Fichiers EMOPIA .mid (bruts et tokenisés)
-├── models/            # Checkpoints des modèles (.pt)
-├── notebooks/         # Visualisations latentes (PCA, t-SNE)
-├── samples/           # Fichiers MIDI générés (Q1 à Q4)
-├── src/               # Code source (dataset, architectures, train, generate)
-├── rapport_deep.pdf   # Rapport de projet complet
-├── requirements.txt   # Dépendances Python
-└── README.md
+* `data/` : Dataset EMOPIA (fichiers `.mid` et tokenisés).
 
-```
+
+* `docs/` : Rapports de projet (FR / EN) et diapos de présentation.
+
+
+* `models/checkpoints/` : Poids `.pt` sauvegardés pour chaque modèle.
+
+
+* `notebooks/` : Analyses statistiques et visualisations (PCA, t-SNE).
+
+
+* `samples/` : Fichiers MIDI générés (MLP, CNN, VAE-LSTM, CVAE-LSTM par quadrant).
+
+
+* `src/` : Code source PyTorch (dataset, modèles, entraînement, génération).
+
+
 
 ### 🚀 Démarrage Rapide
 
@@ -80,7 +90,7 @@ pip install -r requirements.txt
 python src/train.py --model cvae_lstm --latent_dim 64 --epochs 100
 
 # 3. Générer un morceau selon une émotion (ex: Q1 - Joie)
-python src/generate.py --emotion Q1 --temperature 0.6 --output samples/joy.mid
+python src/generate.py --emotion Q1 --temperature 0.6 --output samples/cvae_lstm/joy.mid
 
 ```
 
@@ -111,35 +121,41 @@ Our primary model architecture is a **Conditional Variational Autoencoder paired
 
 Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268 tokens, fixed $SEQ\_LEN = 512$).
 
-| Model | Latent Dim ($d$) | Val Loss (ELBO) | Performance Summary |
-| --- | --- | --- | --- |
-| **VAE (MLP)** | 64 | 2346.0 | Severe overfitting, loss of temporal order.
+| Step | Model | Latent Dim ($d$) | Val Loss (ELBO) | Performance Summary |
+| --- | --- | --- | --- | --- |
+| **1** | **VAE (MLP)** | 64 | 2346.0 | Severe overfitting, loss of temporal order.
 
  |
-| **VAE (1D-CNN)** | 64 | 1885.4 | Learns local patterns, suffers from short-term memory.
+| **2** | **VAE (1D-CNN)** | 64 | 1885.4 | Learns local patterns, suffers from short-term memory.
 
  |
-| **VAE (LSTM)** | 64 | 1284.4 | High musical coherence, unguided emotion generation.
+| **3** | **VAE (LSTM)** | 64 | 1284.4 | High musical coherence, unguided emotion generation.
 
  |
-| **C-VAE (LSTM)** | **64** | **1283.6** | **Best musical grammar + Clear 4-cluster emotional separation**.
+| **4** | **C-VAE (LSTM)** | **64** | **1283.6** | **Best musical grammar + Clear 4-cluster emotional separation**.
 
  |
 
 ### 🛠️ Repository Structure
 
-```text
-cvae-emopia-music/
-├── data/              # EMOPIA dataset (.mid & processed tokens)
-├── models/            # Saved PyTorch checkpoints (.pt)
-├── notebooks/         # Latent space analysis (PCA & t-SNE)
-├── samples/           # Generated MIDI samples (Q1 through Q4)
-├── src/               # Source code (dataset, models, train, generate)
-├── rapport_deep.pdf   # Complete project report
-├── requirements.txt   # Python dependencies
-└── README.md
+* `data/`: EMOPIA dataset (raw `.mid` and tokenized files).
 
-```
+
+* `docs/`: Project reports (FR / EN) and defense slides.
+
+
+* `models/checkpoints/`: Saved `.pt` weights for each evaluated model.
+
+
+* `notebooks/`: Statistical analyses and projections (PCA, t-SNE).
+
+
+* `samples/`: Generated MIDI audio files for each model.
+
+
+* `src/`: PyTorch source code (dataset loaders, architectures, training, inference).
+
+
 
 ### 🚀 Quickstart
 
@@ -153,6 +169,6 @@ pip install -r requirements.txt
 python src/train.py --model cvae_lstm --latent_dim 64 --epochs 100
 
 # 3. Generate a track conditioned on emotion (e.g., Q3 - Sadness)
-python src/generate.py --emotion Q3 --temperature 0.6 --output samples/sadness.mid
+python src/generate.py --emotion Q3 --temperature 0.6 --output samples/cvae_lstm/sadness.mid
 
 ```
