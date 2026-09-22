@@ -1,7 +1,7 @@
 
 # 🎵 Emotion-Conditioned Piano Music Generation (CVAE-LSTM)
 
-> **Université Paris-Dauphine — Master Deep Learning (Mai 2026)**
+> **Université Paris-Dauphine — Deep Learning (Mai 2026)**
 > 
 > **Auteurs :** Éric CHEN & Léa YANG
 > 
