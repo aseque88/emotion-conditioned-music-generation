@@ -19,7 +19,7 @@
 
 ### 📌 Présentation du Projet
 
-Ce projet explore la génération automatique de musique pour piano conditionnée par une intention émotionnelle. En combinant le dataset [**EMOPIA**](https://annahung31.github.io/EMOPIA/) et le **modèle circomplexe de Russell (1980)**, nous classons les pièces selon la **Valence** (positivité) et l'**Activation / Arousal** (énergie) :
+Ce projet explore la génération automatique de musique pour piano conditionnée par une intention émotionnelle. En combinant le dataset [**EMOPIA**]([https://annahung31.github.io/EMOPIA/](https://zenodo.org/records/5090631#.YPPo-JMzZz8)) et le **modèle circomplexe de Russell (1980)**, nous classons les pièces selon la **Valence** (positivité) et l'**Activation / Arousal** (énergie) :
 
 * **Q1 (Haute Valence / Haute Activation) :** Joie, excitation
 
@@ -74,7 +74,7 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 
 ### 📌 Project Overview
 
-This repository presents an end-to-end framework for emotion-conditioned piano music generation. Utilizing the **EMOPIA** dataset and **Russell's circumplex model (1980)**, our goal is to generate music guided by four distinct emotion quadrants based on **Valence** and **Arousal**:
+This repository presents an end-to-end framework for emotion-conditioned piano music generation. Utilizing the [**EMOPIA**](https://zenodo.org/records/5090631#.YPPo-JMzZz8) dataset and **Russell's circumplex model (1980)**, our goal is to generate music guided by four distinct emotion quadrants based on **Valence** and **Arousal**:
 
 * **Q1 (High Valence / High Arousal):** Joy, excitement
 
