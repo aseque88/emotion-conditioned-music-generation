@@ -50,9 +50,6 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 
 ### 🛠️ Structure du Dépôt
 
-* `data/` : Dataset EMOPIA (fichiers `.mid`).
-
-
 * `docs/` : Rapports de projet (FR / EN) et diapos de présentation.
 
 
@@ -104,9 +101,6 @@ Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268
 
 
 ### 🛠️ Repository Structure
-
-* `data/`: EMOPIA dataset (raw `.mid`).
-
 
 * `docs/`: Project reports (FR / EN) and slides.
 
