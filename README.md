@@ -40,20 +40,13 @@ Notre architecture retenue est un **Auto-Encodeur Variationnel Conditionnel coup
 
 Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire de 268 tokens, $SEQ\_LEN = 512$).
 
-| Étape | Modèle | Dim Latente ($d$) | Loss Val (ELBO) | Résultat & Observations |
-| --- | --- | --- | --- | --- |
-| **1** | **VAE (MLP)** | 64 | 2346.0 | Overfitting massif, perte du contexte temporel.
+| Étape | Modèle           | Dim Latente ($d$) | Loss Val (ELBO) | Résultat & Observations                                         |
+| ----: | ---------------- | ----------------: | --------------: | --------------------------------------------------------------- |
+| **1** | **VAE (MLP)**    |                64 |          2450 | Overfitting massif, perte du contexte temporel.                 |
+| **2** | **VAE (CNN 1D)** |                64 |          2200 | Motifs locaux appris, amnésie temporelle.                       |
+| **3** | **VAE (LSTM)**   |                64 |          1284.4 | Excellente cohérence, génération émotionnelle aléatoire.        |
+| **4** | **C-VAE (LSTM)** |            **64** |      **1283.6** | **Qualité musicale optimale + Séparation nette en 4 clusters.** |
 
- |
-| **2** | **VAE (CNN 1D)** | 64 | 1885.4 | Motifs locaux appris, amnésie temporelle.
-
- |
-| **3** | **VAE (LSTM)** | 64 | 1284.4 | Excellente cohérence, génération émotionnelle aléatoire.
-
- |
-| **4** | **C-VAE (LSTM)** | **64** | **1283.6** | **Qualité musicale optimale + Séparation nette en 4 clusters**.
-
- |
 
 ### 🛠️ Structure du Dépôt
 
@@ -80,7 +73,7 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 
 ```bash
 # 1. Cloner le projet et installer les dépendances
-git clone https://github.com/votre-username/cvae-emopia-music.git
+git clone https://github.com/aseque88/cvae-emopia-music.git
 cd cvae-emopia-music
 pip install -r requirements.txt
 
@@ -119,20 +112,13 @@ Our primary model architecture is a **Conditional Variational Autoencoder paired
 
 Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268 tokens, fixed $SEQ\_LEN = 512$).
 
-| Step | Model | Latent Dim ($d$) | Val Loss (ELBO) | Performance Summary |
-| --- | --- | --- | --- | --- |
-| **1** | **VAE (MLP)** | 64 | 2346.0 | Severe overfitting, loss of temporal order.
+|  Step | Model            | Latent Dim ($d$) | Val Loss (ELBO) | Performance Summary                                              |
+| ----: | ---------------- | ---------------: | --------------: | ---------------------------------------------------------------- |
+| **1** | **VAE (MLP)**    |               64 |          2450 | Severe overfitting, loss of temporal order.                      |
+| **2** | **VAE (1D-CNN)** |               64 |          2200 | Learns local patterns, suffers from short-term memory.           |
+| **3** | **VAE (LSTM)**   |               64 |          1284.4 | High musical coherence, unguided emotion generation.             |
+| **4** | **C-VAE (LSTM)** |           **64** |      **1283.6** | **Best musical grammar + Clear 4-cluster emotional separation.** |
 
- |
-| **2** | **VAE (1D-CNN)** | 64 | 1885.4 | Learns local patterns, suffers from short-term memory.
-
- |
-| **3** | **VAE (LSTM)** | 64 | 1284.4 | High musical coherence, unguided emotion generation.
-
- |
-| **4** | **C-VAE (LSTM)** | **64** | **1283.6** | **Best musical grammar + Clear 4-cluster emotional separation**.
-
- |
 
 ### 🛠️ Repository Structure
 
@@ -159,7 +145,7 @@ Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268
 
 ```bash
 # 1. Clone & Install
-git clone https://github.com/votre-username/cvae-emopia-music.git
+git clone https://github.com/aseque88/cvae-emopia-music.git
 cd cvae-emopia-music
 pip install -r requirements.txt
 
