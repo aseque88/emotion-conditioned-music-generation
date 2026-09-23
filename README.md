@@ -50,7 +50,7 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 
 ### 🛠️ Structure du Dépôt
 
-* `data/` : Dataset EMOPIA (fichiers `.mid` et tokenisés).
+* `data/` : Dataset EMOPIA (fichiers `.mid`).
 
 
 * `docs/` : Rapports de projet (FR / EN) et diapos de présentation.
@@ -59,31 +59,14 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 * `models/checkpoints/` : Poids `.pt` sauvegardés pour chaque modèle.
 
 
-* `notebooks/` : Analyses statistiques et visualisations (PCA, t-SNE).
+* `notebooks/` : Pipeline complet de génération de musique pour piano conditionnée par des émotions à l'aide de la tokenisation MIDI et de différents modèles (VAE MLP, VAE CNN, VAE LSTM, CVAE) + Analyses statistiques et visualisations (PCA, t-SNE).
 
 
 * `samples/` : Fichiers MIDI générés (MLP, CNN, VAE-LSTM, CVAE-LSTM par quadrant).
 
 
-* `src/` : Code source PyTorch (dataset, modèles, entraînement, génération).
 
 
-
-### 🚀 Démarrage Rapide
-
-```bash
-# 1. Cloner le projet et installer les dépendances
-git clone https://github.com/aseque88/emotion-conditioned-music-generation.git
-cd cvae-emopia-music
-pip install -r requirements.txt
-
-# 2. Entraîner le CVAE-LSTM
-python src/train.py --model cvae_lstm --latent_dim 64 --epochs 100
-
-# 3. Générer un morceau selon une émotion (ex: Q1 - Joie)
-python src/generate.py --emotion Q1 --temperature 0.6 --output samples/cvae_lstm/joy.mid
-
-```
 
 ---
 
@@ -122,37 +105,20 @@ Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268
 
 ### 🛠️ Repository Structure
 
-* `data/`: EMOPIA dataset (raw `.mid` and tokenized files).
+* `data/`: EMOPIA dataset (raw `.mid`).
 
 
-* `docs/`: Project reports (FR / EN) and defense slides.
+* `docs/`: Project reports (FR / EN) and slides.
 
 
 * `models/checkpoints/`: Saved `.pt` weights for each evaluated model.
 
 
-* `notebooks/`: Statistical analyses and projections (PCA, t-SNE).
+* `notebooks/`: Complete pipeline for emotion-conditioned piano music generation using MIDI tokenization and various models (MLP VAE, CNN VAE, LSTM VAE, CVAE), including statistical analysis and visualizations (PCA, t-SNE).
 
 
 * `samples/`: Generated MIDI audio files for each model.
 
 
-* `src/`: PyTorch source code (dataset loaders, architectures, training, inference).
 
 
-
-### 🚀 Quickstart
-
-```bash
-# 1. Clone & Install
-git clone https://github.com/aseque88/emotion-conditioned-music-generation.git
-cd cvae-emopia-music
-pip install -r requirements.txt
-
-# 2. Train CVAE-LSTM
-python src/train.py --model cvae_lstm --latent_dim 64 --epochs 100
-
-# 3. Generate a track conditioned on emotion (e.g., Q3 - Sadness)
-python src/generate.py --emotion Q3 --temperature 0.6 --output samples/cvae_lstm/sadness.mid
-
-```
