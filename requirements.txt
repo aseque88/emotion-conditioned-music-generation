@@ -1,0 +1,6 @@
+miditok
+symusic
+torch
+matplotlib
+scikit-learn
+numpy
