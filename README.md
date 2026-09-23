@@ -50,13 +50,13 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 
 ### 🛠️ Structure du Dépôt
 
-* `docs/` : Rapports de projet (FR / EN) et diapos de présentation.
+* `report/` : Rapports de projet (FR / EN) et diapos de présentation.
 
 
-* `models/checkpoints/` : Poids `.pt` sauvegardés pour chaque modèle.
+* `model_cnn`, `model_cvae`, `model_lstm`, `model_mlp` : Poids `.pt` sauvegardés pour chaque modèle.
 
 
-* `notebooks/` : Pipeline complet de génération de musique pour piano conditionnée par des émotions à l'aide de la tokenisation MIDI et de différents modèles (VAE MLP, VAE CNN, VAE LSTM, CVAE) + Analyses statistiques et visualisations (PCA, t-SNE).
+* `notebook.ipynb` : Pipeline complet de génération de musique pour piano conditionnée par des émotions à l'aide de la tokenisation MIDI et de différents modèles (VAE MLP, VAE CNN, VAE LSTM, CVAE) + Analyses statistiques et visualisations (PCA, t-SNE).
 
 
 * `samples/` : Fichiers MIDI générés (MLP, CNN, VAE-LSTM, CVAE-LSTM par quadrant).
@@ -102,13 +102,13 @@ Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268
 
 ### 🛠️ Repository Structure
 
-* `docs/`: Project reports (FR / EN) and slides.
+* `report/`: Project reports (FR / EN) and slides.
 
 
-* `models/checkpoints/`: Saved `.pt` weights for each evaluated model.
+* `model_cnn`, `model_cvae`, `model_lstm`, `model_mlp` : Saved `.pt` weights for each evaluated model.
 
 
-* `notebooks/`: Complete pipeline for emotion-conditioned piano music generation using MIDI tokenization and various models (MLP VAE, CNN VAE, LSTM VAE, CVAE), including statistical analysis and visualizations (PCA, t-SNE).
+* `notebook.ipynb`: Complete pipeline for emotion-conditioned piano music generation using MIDI tokenization and various models (MLP VAE, CNN VAE, LSTM VAE, CVAE), including statistical analysis and visualizations (PCA, t-SNE).
 
 
 * `samples/`: Generated MIDI audio files for each model.
