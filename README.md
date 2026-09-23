@@ -73,7 +73,7 @@ Représentation des données : Tokenisation **REMI** via `MidiTok` (vocabulaire 
 
 ```bash
 # 1. Cloner le projet et installer les dépendances
-git clone https://github.com/aseque88/cvae-emopia-music.git
+git clone https://github.com/aseque88/emotion-conditioned-music-generation.git
 cd cvae-emopia-music
 pip install -r requirements.txt
 
@@ -145,7 +145,7 @@ Data Representation: **REMI** tokenization via `MidiTok` (vocabulary size of 268
 
 ```bash
 # 1. Clone & Install
-git clone https://github.com/aseque88/cvae-emopia-music.git
+git clone https://github.com/aseque88/emotion-conditioned-music-generation.git
 cd cvae-emopia-music
 pip install -r requirements.txt
 
