@@ -3,7 +3,7 @@
 
 > **Université Paris-Dauphine — Deep Learning (Mai 2026)**
 > 
-> **Auteurs :** Éric CHEN & Léa YANG
+> **Authors:** Éric CHEN & Léa YANG
 > 
 > 
 ---
